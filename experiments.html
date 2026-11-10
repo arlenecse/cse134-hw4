@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arlene Garcia's Portfolio</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div> <span>Arlene Garcia</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="experiments.html">Experiments</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Experiments</h1>
+        <script>
+            class HelloWorld extends HTMLElement {
+                constructor() {
+                    super();
+                    console.log("Hello World!");
+                }
+            }
+            customElements.define('hello-world', HelloWorld);
+        </script>
+        <h2>Hello World</h2>
+        <hello-world></hello-world>
+        <h2>IFrame</h2>
+        <iframe src="https://docs.google.com/document/d/1H6sH7lRt2drMgbM-rUff3oHPrbVAi0b9M0rN71fD3F4/edit?tab=t.0" width="1000" height="600"></iframe>
+        <h2>Audio</h2>
+        <audio controls>
+            <source src="media/sample-audio.m4a" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <h2>Video</h2>
+        <video controls width="320" height="240">
+            <source src="media/sample-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h2>Canvas</h2>
+        <canvas id="myCanvas" width="320" height="240"></canvas>
+        <script>
+            const canvas = document.getElementById("myCanvas");
+            const context = canvas.getContext("2d");
+            context.fillStyle = "lightgray";
+            context.fillRect(30, 50, 150, 100);
+        </script>
+        <h2>Template</h2>
+        <template id="myTemplate">
+            <article>
+                <h3>Template Example</h3>
+                <p>This is an example of a template.</p>
+            </article>
+        </template>
+        <h2>Dialog</h2>
+        <dialog open>
+            <p>This is a dialog box.</p>
+        </dialog>
+        <h2>MathML</h2>
+        <p>Einstein's formula</p>
+        <math>
+            <mi>E</mi>
+            <mo>=</mo>
+            <mi>m</mi>
+            <msup>
+                <mi>c</mi>
+                <mn>2</mn>
+            </msup>
+        </math>
+    </main>
+    <footer>
+        <p>Thank you for stopping by!</p>
+        <svg width="100" height="100">
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="lightgray"></circle>
+        </svg>
+        <section>
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://github.com/arlenecse">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/arlene-garcia-cs/">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+    <noscript>
+        <p> This website works best with JavaScript enabled.</p>
+    </noscript>
+</body>
+</html>
