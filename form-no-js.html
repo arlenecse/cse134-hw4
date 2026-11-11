@@ -3,10 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>No JS Form</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Contact Form | Arlene Garcia</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <header>
+        <span>Arlene Garcia</span>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="experiments.html">Experiments</a>
+            <a href="form-no-js.html">Form No JS</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Contact Form</h1>
+            <p>Send a message using this form. JavaScript is not required to submit it.</p>
+            <form action="https://httpbin.org/post" method="post">
+                <fieldset>
+                    <legend>Send me a message</legend>
+                    <p>Enter your name and email address, then add any comments you would like to share.</p>
+                    <p> The minimum length for name is 1 character and the maximum is 100 characters.</p>
+
+                    <label for="name">
+                        Name (required)
+                        <input type="text" id="name" name="name" autocomplete="name" minlength="1" maxlength="100" required>
+                    </label>
+
+                    <label for="email">
+                        Email (required)
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </label>
+
+                    <p> The minimum length for comments is 10 characters and the maximum is 1000 characters.</p>
+
+                    <label for="comments">
+                        Comments (required)
+                        <textarea id="comments" name="comments" rows="6" minlength="10" maxlength="1000" required></textarea>
+                    </label>
+
+                    <input type="hidden" name="possible_bot" value="true">
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Thank you for stopping by!</p>
+        <svg width="100" height="100" aria-hidden="true">
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="lightgray"></circle>
+        </svg>
+        <section>
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://github.com/arlenecse">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/arlene-garcia-cs/">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
 </body>
 </html>

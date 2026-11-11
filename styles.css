@@ -300,6 +300,88 @@ textarea {
     resize: vertical;
 }
 
+main > section:first-child:has(> form) {
+    max-width: 42rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.5rem;
+    background: var(--surface-color);
+}
+
+main > section:first-child:has(> form) > p {
+    margin-bottom: 1.5rem;
+}
+
+main > section:first-child:has(> form) form {
+    max-width: none;
+}
+
+main > section:first-child:has(> form) fieldset {
+    display: grid;
+    gap: 1rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+main > section:first-child:has(> form) legend {
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+main > section:first-child:has(> form) fieldset > p {
+    margin: 0;
+}
+
+main > section:first-child:has(> form) label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-weight: 600;
+}
+
+main > section:first-child:has(> form) label::before {
+    content: "*";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #a32929;
+    font-weight: 700;
+}
+
+main > section:first-child:has(> form) label {
+    position: relative;
+    padding-left: 0.8rem;
+}
+
+main > section:first-child:has(> form) input:required,
+main > section:first-child:has(> form) textarea:required {
+    border-left: 4px solid var(--primary-color);
+}
+
+main > section:first-child:has(> form) label:has(input:user-invalid),
+main > section:first-child:has(> form) label:has(textarea:user-invalid) {
+    text-decoration: underline wavy #a32929;
+}
+
+main > section:first-child:has(> form) input:user-invalid,
+main > section:first-child:has(> form) textarea:user-invalid {
+    border-color: #a32929;
+    box-shadow: 0 0 0 2px #a32929;
+}
+
+main > section:first-child:has(> form) input:user-valid,
+main > section:first-child:has(> form) textarea:user-valid {
+    border-color: #176b3a;
+    box-shadow: 0 0 0 2px #176b3a;
+}
+
+main > section:first-child:has(> form) button {
+    justify-self: start;
+    margin-top: 0;
+}
+
 project-card {
     display: grid;
     grid-template-columns: minmax(12rem, 1fr) minmax(0, 1.5fr);
@@ -510,6 +592,10 @@ main > section:nth-child(2):has(form) button {
     }
 
     main > section:nth-child(2):has(form) {
+        padding: 1rem;
+    }
+
+    main > section:first-child:has(> form) {
         padding: 1rem;
     }
 
