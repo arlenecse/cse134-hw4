@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form | Arlene Garcia</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="form.js" defer></script>
+</head>
+<body>
+    <header>
+        <span>Arlene Garcia</span>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="experiments.html">Experiments</a>
+            <a href="form-no-js.html">Form No JS</a>
+            <a href="form-with-js.html">Form With JS</a>
+            <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+            <script src="theme.js" defer></script>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Contact Form</h1>
+            <form id="jsform" action="https://httpbin.org/post" method="post" novalidate>
+                <fieldset>
+                    <legend>Send me a message</legend>
+                    <p>Enter your name and email address, then add any comments you would like to share.</p>
+
+                    <label for="name">
+                        Name (required)
+                        <input type="text" id="name" name="name" autocomplete="name" minlength="1" maxlength="100" required aria-describedby="name-error">
+                    </label>
+
+                    <label for="email">
+                        Email (required)
+                        <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error">
+                    </label>
+
+                    <label for="comments">
+                        Comments (required)
+                        <textarea id="comments" name="comments" rows="6" minlength="10" maxlength="1000" required aria-describedby="comments-error comments-info"></textarea>
+                    </label>
+
+                    <section id="form-errors" aria-labelledby="form-errors-heading" aria-live="polite" hidden>
+                        <h2 id="form-errors-heading">Errors</h2>
+                        <p id="name-error" hidden></p>
+                        <p id="email-error" hidden></p>
+                        <p id="comments-error" hidden></p>
+                    </section>
+
+                    <section id="comments-info" aria-labelledby="comments-info-heading" aria-live="polite" hidden>
+                        <h2 id="comments-info-heading"> Comment Information</h2>
+                        <p id="comments-count"></p>
+                        <p id="comments-warning"></p>
+                    </section>
+                    <input type="hidden" id="form-errors-history" name="form-errors">
+                    <input type="hidden" name="possible_bot" value="true">
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Thank you for stopping by!</p>
+        <svg width="100" height="100" aria-hidden="true">
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="lightgray"></circle>
+        </svg>
+        <section>
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://github.com/arlenecse">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/arlene-garcia-cs/">LinkedIn</a></li>
+            </ul>
+        </section>
+    </footer>
+</body>
+</html>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 :root {
+    color-scheme: light;
     --primary-color: #036264;
     --secondary-color: #905773;
     --background-color: #DAC4D0;
@@ -8,6 +9,22 @@
     --text-color: #25262b;
     --sub-color: #66676d;
     --border-color: #ca9dbc;
+    --focus-color: #005fcc;
+    --content-width: 1200px;
+    --font-stack: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
+    --line-height: 1.5;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --primary-color: #036264;
+    --secondary-color: #905773;
+    --background-color: #25262b;
+    --surface-color: #1a1b1e;
+    --text-color: #f0f0f0;
+    --sub-color: #a0a0a0;
+    --border-color: #ca9dbc;
+    --focus-color: #72b7ff;
     --content-width: 1200px;
     --font-stack: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
     --line-height: 1.5;
@@ -55,6 +72,18 @@ nav a {
     color: var(--text-color);
     font-size: 0.85rem;
     text-decoration: none;
+    border-radius: 0.25rem;
+}
+
+nav button {
+    display: block;
+    align-self: center;
+    margin: 0;
+    padding: 0.55em 0.75em;
+    border: 1px solid var(--primary-color);
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 0.85rem;
     border-radius: 0.25rem;
 }
 
@@ -115,7 +144,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-    outline: 3px solid black;
+    outline: 3px solid var(--focus-color);
     outline-offset: 3px;
 }
 
@@ -377,6 +406,45 @@ main > section:first-child:has(> form) textarea:user-valid {
     box-shadow: 0 0 0 2px #176b3a;
 }
 
+main > section:first-child:has(> form) #form-errors,
+main > section:first-child:has(> form) #comments-info {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.9rem 1rem;
+    border-radius: 0.35rem;
+}
+
+main > section:first-child:has(> form) #form-errors {
+    background: #fff0f1;
+    color: #8f1d27;
+}
+
+main > section:first-child:has(> form) #comments-info {
+    background: #fff7e6;
+    color: #704900;
+}
+
+main > section:first-child:has(> form) #form-errors h2,
+main > section:first-child:has(> form) #comments-info h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+main > section:first-child:has(> form) #form-errors p,
+main > section:first-child:has(> form) #comments-info p {
+    margin: 0.25rem 0 0;
+}
+
+main > section:first-child:has(> form) #form-errors p:not([hidden]) {
+    padding-left: 1.25rem;
+    text-indent: -0.75rem;
+}
+
+main > section:first-child:has(> form) #form-errors p:not([hidden])::before {
+    content: "\2022";
+    margin-right: 0.5rem;
+}
+
 main > section:first-child:has(> form) button {
     justify-self: start;
     margin-top: 0;
@@ -621,4 +689,33 @@ main > section:nth-child(2):has(form) button {
     footer p {
         grid-column: 1 / -1;
     }
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 250ms;
+    animation-timing-function: ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 1ms;
+    }
+}
+
+.project1-preview {
+    view-transition-name: project1-card;
+}
+
+.project2-preview {
+    view-transition-name: project2-card;
+}
+
+.project3-preview {
+    view-transition-name: project3-card;
 }
