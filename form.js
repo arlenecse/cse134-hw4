@@ -7,7 +7,7 @@ let nameEdited = false;
 let emailEdited = false;
 let commentsEdited = false;
 
-const formErrors = []
+const form_errors = [];
 const formErrorsHistory = document.getElementById("form-errors-history");
 
 function validate(inputID) {
@@ -80,7 +80,10 @@ function updateCommentsInformation() {
 function recordSubmissionErrors(fields) {
     fields.forEach((field) => {
         if (!field.validity.valid) {
-            formErrors.push({field: field.name, error: field.validationMessage});
+            form_errors.push({
+                field: field.name,
+                error: field.validationMessage
+            });
         }
     });
 }
@@ -144,7 +147,7 @@ form.addEventListener("submit", (event) => {
         return;
     }
 
-    formErrorsHistory.value = JSON.stringify(formErrors);
+    formErrorsHistory.value = JSON.stringify(form_errors);
 });
 
 updateCommentsInformation();

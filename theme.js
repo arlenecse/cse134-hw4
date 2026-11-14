@@ -24,7 +24,7 @@ function setTheme(theme) {
 
     const darkTheme = theme === "dark";
 
-
+    themeToggle.textContent = darkTheme ? "Light Mode" : "Dark Mode";
     themeToggle.setAttribute(
         "aria-label",
         darkTheme ? "Switch to light theme" : "Switch to dark theme"
@@ -40,9 +40,17 @@ function changeTheme(theme) {
         return;
     }
 
-    document.startViewTransition(() => {
+    try {
+        const transition = document.startViewTransition(() => {
+            setTheme(theme);
+        });
+
+        transition.finished.catch(() => {
+            // A newer transition or navigation can abort an older transition.
+        });
+    } catch (error) {
         setTheme(theme);
-    });
+    }
 }
 
 const savedTheme = getTheme();

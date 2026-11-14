@@ -322,6 +322,8 @@ textarea {
     padding: 0.65rem;
     border: 1px solid var(--border-color);
     border-radius: 0.2rem;
+    background: var(--surface-color);
+    color: var(--text-color);
     font: inherit;
 }
 
@@ -695,10 +697,32 @@ main > section:nth-child(2):has(form) button {
     navigation: auto;
 }
 
+@keyframes page-transition-out {
+    to {
+        opacity: 0;
+        transform: translateX(-1.5rem);
+    }
+}
+
+@keyframes page-transition-in {
+    from {
+        opacity: 0;
+        transform: translateX(1.5rem);
+    }
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
-    animation-duration: 250ms;
-    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+}
+
+::view-transition-old(root) {
+    animation-name: page-transition-out;
+}
+
+::view-transition-new(root) {
+    animation-name: page-transition-in;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -706,16 +730,4 @@ main > section:nth-child(2):has(form) button {
     ::view-transition-new(root) {
         animation-duration: 1ms;
     }
-}
-
-.project1-preview {
-    view-transition-name: project1-card;
-}
-
-.project2-preview {
-    view-transition-name: project2-card;
-}
-
-.project3-preview {
-    view-transition-name: project3-card;
 }
